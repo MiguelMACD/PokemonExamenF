@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CapturaRepository extends JpaRepository<Captura, Integer> {
-    
+     
 }
