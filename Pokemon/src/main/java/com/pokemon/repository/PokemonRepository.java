@@ -1,6 +1,6 @@
 package com.pokemon.repository;
 
-import com.pokemon.model.Pokemon;
+import com.pokemon.entities.Pokemon;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
