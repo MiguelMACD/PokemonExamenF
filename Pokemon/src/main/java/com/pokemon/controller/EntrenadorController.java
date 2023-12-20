@@ -1,6 +1,6 @@
 package com.pokemon.controller;
 
-import com.pokemon.model.Entrenador;
+import com.pokemon.entities.Entrenador;
 import com.pokemon.service.EntrenadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
