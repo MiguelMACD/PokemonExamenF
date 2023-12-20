@@ -1,6 +1,6 @@
 package com.pokemon.repository;
 
-import com.pokemon.model.Captura;
+import com.pokemon.entities.Captura;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
