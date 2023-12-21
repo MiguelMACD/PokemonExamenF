@@ -1,15 +1,11 @@
 package com.pokemon.entities;
 
-import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import jakarta.persistence.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -28,8 +24,15 @@ public class Pokemon {
     private Integer generacion;
     private String uuid;
 
-    // Relación con la tabla pokemon.tipo_pokemon
     @ManyToOne
     @JoinColumn(name = "tipo_pokemon")
     private TipoPokemon tipoPokemonEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "entrenador_id")
+    private Entrenador entrenador;
+
+    public void setEntrenador(Entrenador entrenador) {
+        this.entrenador = entrenador;
+    }
 }

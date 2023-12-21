@@ -1,9 +1,9 @@
 package com.pokemon.controller;
 
-import com.pokemon.entities.Entrenador;
+import com.pokemon.entities.Pokemon;
 import com.pokemon.service.EntrenadorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity; 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class EntrenadorController {
     }
 
     @GetMapping("/{uuid}/pokemons")
-    public ResponseEntity<List<Entrenador>> getPokemonsByEntrenador(@PathVariable String uuid) {
+    public ResponseEntity<List<Pokemon>> getPokemonsByEntrenador(@PathVariable String uuid) {
         List<Pokemon> pokemons = entrenadorService.getPokemonsByEntrenador(uuid);
         return ResponseEntity.ok(pokemons);
     }

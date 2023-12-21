@@ -17,14 +17,13 @@ public class PokemonController {
 
     @GetMapping("/{tipo}")
     public ResponseEntity<List<Pokemon>> getPokemonsByTipo(@PathVariable String tipo) {
-        List<Pokemon> pokemons = pokemonService.getPokemonsByTipo(tipo);
+        List<Pokemon> pokemons = pokemonService.listarPokemonesPorTipo(tipo);
         return ResponseEntity.ok(pokemons);
     }
 
     @PostMapping
     public ResponseEntity<Pokemon> registerPokemon(@RequestBody Pokemon pokemon) {
-        Pokemon registeredPokemon = pokemonService.registerPokemon(pokemon);
+        Pokemon registeredPokemon = pokemonService.registrarPokemon(pokemon);
         return ResponseEntity.ok(registeredPokemon);
     }
 }
-	

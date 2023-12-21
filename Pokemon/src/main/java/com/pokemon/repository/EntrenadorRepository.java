@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EntrenadorRepository extends JpaRepository<Entrenador, Integer> {
-   
+    Entrenador findByEmail(String email);
+
+    Entrenador findByUuid(String entrenadorUuid);
 }

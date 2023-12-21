@@ -1,15 +1,13 @@
 package com.pokemon.entities;
 
-import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,11 +24,18 @@ public class Entrenador {
     private Date fechaNacimiento;
     private Date fechaVinculacion;
 
-    // Relación con la tabla pokemon.pueblo
     @ManyToOne
     @JoinColumn(name = "pueblo_id")
     private Pueblo pueblo;
 
     private String email;
     private String uuid;
+
+    @OneToMany(mappedBy = "entrenador", cascade = CascadeType.ALL)
+    private List<Pokemon> pokemons = new ArrayList<>();
+
+    public void addPokemon(Pokemon pokemon) {
+        pokemons.add(pokemon);
+        pokemon.setEntrenador(this);
+    }
 }
